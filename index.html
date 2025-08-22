@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌍Explore Ease</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍Explore Ease</h1>
+  </header>
+
+  <main>
+<div class="controls">
+<input type="text" id="search" placeholder="Search city, country, or tour name" />
+<select id="region">
+<option value="all">All regions</option>
+<option value="Europe">Europe</option>
+<option value="Asia">Asia</option>
+<option value="Africa">Africa</option>
+<option value="South America">South America</option>
+<option value="North America">North America</option>
+</select>
+<select id="sort">
+<option value="popular">Most popular</option>
+<option value="price-asc">Price: Low → High</option>
+<option value="price-desc">Price: High → Low</option>
+</select>
+</div>
+
+  <main>
+    <!-- Each card has text + image -->
+    <section class="tours">
+      <!-- Paris -->
+      <div class="tour-card">
+        <div class="tour-text">
+          <h3>Paris Highlights & Seine Cruise</h3>
+          <p>Paris, France</p>
+          <p>⭐ 4.8 • $90 per person</p>
+          <button onclick="openBooking('paris')">Book</button>
+        </div>
+        <div class="tour-image">
+          <img src="/paris.jpg" alt="Paris Highlights">
+        </div>
+      </div>
+
+      <!-- Tokyo -->
+      <div class="tour-card">
+        <div class="tour-image">
+          <img src="/tokyo.jpg" alt="Tokyo Night food safari">
+        </div>
+        <div class="tour-text">
+          <h3>Tokyo Night Food Safari</h3>
+          <p>Tokyo, Japan</p>
+          <p>⭐ 4.9 • $110 per person</p>
+          <button onclick="openBooking('tokyo')">Book</button>
+        </div>
+      </div>
+
+      <!-- Cape Town -->
+      <div class="tour-card">
+        <div class="tour-text">
+          <h3>Cape Town</h3>
+          <p>Cape Town, South Africa</p>
+          <p>⭐ 4.7 • $130 per person</p>
+          <button onclick="openBooking('capetown')">Book</button>
+        </div>
+        <div class="tour-image">
+          <img src="/cape town.jpg" alt="Cape Town Tour">
+        </div>
+      </div>
+
+      <!-- New York -->
+      <div class="tour-card">
+        <div class="tour-image">
+          <img src="new york.jpg" alt="New York city">
+        </div>
+        <div class="tour-text">
+          <h3>New York city</h3>
+          <p>New York, USA</p>
+          <p>⭐ 4.6 • $250 per person</p>
+          <button onclick="openBooking('newyork')">Book</button>
+        </div>
+      </div>
+
+      <!-- Rome -->
+      <div class="tour-card">
+        <div class="tour-text">
+          <h3>Rome Ancient Wonders</h3>
+          <p>Rome, Italy</p>
+          <p>⭐ 4.8 • $100 per person</p>
+          <button onclick="openBooking('rome')">Book</button>
+        </div>
+        <div class="tour-image">
+          <img src="rome.jpg" alt="Rome Ancient">
+        </div>
+      </div>
+
+      <!-- Sydney -->
+      <div class="tour-card">
+        <div class="tour-image">
+          <img src="sydney.jpg" alt="Sydney Opera House">
+        </div>
+        <div class="tour-text">
+          <h3>Sydney Opera House Experience</h3>
+          <p>Sydney, Australia</p>
+          <p>⭐ 4.9 • $130 per person</p>
+          <button onclick="openBooking('sydney')">Book</button>
+        </div>
+      </div>
+
+      <!-- Giza -->
+      <div class="tour-card">
+        <div class="tour-text">
+          <h3>Pyramids of Giza Adventure</h3>
+          <p>Cairo, Egypt</p>
+          <p>⭐ 4.7 • $145 per person</p>
+          <button onclick="openBooking('giza')">Book</button>
+        </div>
+        <div class="tour-image">
+          <img src="/egypt.jpg" alt="Pyramids of Giza">
+        </div>
+      </div>
+
+      <!-- Rio -->
+      <div class="tour-card">
+        <div class="tour-image">
+          <img src="/rio carnival.jpg" alt="Rio Carnival">
+        </div>
+        <div class="tour-text">
+          <h3>Rio Carnival Street Tour</h3>
+          <p>Rio de Janeiro, Brazil</p>
+          <p>⭐ 4.8 • $120 per person</p>
+          <button onclick="openBooking('rio')">Book</button>
+        </div>
+      </div>
+
+      <!-- London -->
+      <div class="tour-card">
+        <div class="tour-text">
+          <h3>London Royal Experience</h3>
+          <p>London, UK</p>
+          <p>⭐ 4.9 • $150 per person</p>
+          <button onclick="openBooking('london')">Book</button>
+        </div>
+        <div class="tour-image">
+          <img src="/london.jpg" alt="London Royal">
+        </div>
+      </div>
+
+      <!-- Dubai -->
+      <div class="tour-card">
+        <div class="tour-image">
+          <img src="/dubai.jpg" alt="Dubai Desert Tour">
+        </div>
+        <div class="tour-text">
+          <h3>Dubai Desert & City Lights</h3>
+          <p>Dubai, UAE</p>
+          <p>⭐ 4.8 • $200 per person</p>
+          <button onclick="openBooking('dubai')">Book</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bookings Section -->
+    <section class="booking-section">
+      <h2>Your upcoming bookings</h2>
+      <div id="bookings"></div>
+    </section>
+  </main>
+
+  <!-- Booking dialog -->
+  <dialog id="bookingDialog">
+    <form method="dialog" id="bookingForm">
+      <h3 id="dialogTitle"></h3>
+      <p id="dialogLocation"></p>
+      <label>Date: <input type="date" id="dateInput" required /></label><br><br>
+      <label>Time: <select id="timeInput" required></select></label><br><br>
+      <label>Guests: <input type="number" id="guestsInput" min="1" value="1" required /></label><br><br>
+      <p>Total: <span id="totalPrice"></span></p>
+      <menu>
+        <button value="cancel">Cancel</button>
+        <button id="confirmBtn" value="default">Confirm</button>
+        <button type="button" onclick="goBack()">⬅ Back</button>
+
+      </menu>
+    </form>
+  </dialog>
+
+  <footer>Visit for more information</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
