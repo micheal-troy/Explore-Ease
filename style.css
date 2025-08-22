@@ -93,44 +93,29 @@ footer {
   font-size: 0.8rem;
   opacity: 0.8;
 }
-
-.tour-image img {
-  width: 400px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  display: block;
-}
-
-/* Tablet & smaller */
+/* Ensure each card is a vertical block on smaller screens */
 @media (max-width: 1024px) {
   .tour-card,
   .tour-card:nth-child(even) {
-    flex-direction: column;   /* ✅ stack text under image */
+    display: flex;
+    flex-direction: column;   /* ✅ stack inside the card */
     align-items: center;
     text-align: center;
+    margin-bottom: 40px;      /* consistent spacing between cards */
   }
 
   .tour-text {
     max-width: 100%;
-    margin-bottom: 15px;
+    margin-top: 15px;         /* spacing under image */
+    margin-bottom: 10px;
+    text-align: center;
   }
 
-  .tour-image img {
-    width: 300px;
-    height: auto;
-    margin: 0 auto; /* ✅ center image */
+  .tour-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* ✅ center image horizontally */
   }
-
-/* Phone */
-@media (max-width: 600px) {
-  header h1 { font-size: 1rem; }
-
-  .controls { flex-direction: column; gap: 8px; }
-  .controls input, .controls select { width: 100%; }
-
-  button { width: 100%; }
 
   .tour-image img {
     width: 100%;
@@ -138,3 +123,10 @@ footer {
     height: auto;
     margin: 0 auto;
   }
+
+  .tour-card button {
+    margin-top: 10px;         /* ✅ keep button under text */
+    align-self: center;
+  }
+}
+
