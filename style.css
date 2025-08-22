@@ -94,50 +94,6 @@ footer {
   opacity: 0.8;
 }
 
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1rem;
-  }
-
-  .controls {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .controls input,
-  .controls select {
-    width: 100%;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .tour-card {
-    text-align: center; 
-  }
-
-  .tour-text {
-    text-align: center;
-  }
-
-  .tour-image {
-    justify-content: center;
-  }
-
-  .tour-image img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-
-
-
-
-
-
-
-/* Base (desktop stays exactly as before) */
 .tour-image img {
   width: 400px;
   height: 250px;
@@ -147,28 +103,38 @@ footer {
   display: block;
 }
 
-/* Tablet */
+/* Tablet & smaller */
 @media (max-width: 1024px) {
-  /* Make ALL cards stack (even ones that were row-reverse) */
   .tour-card,
   .tour-card:nth-child(even) {
-    flex-direction: column !important;
-  }
-
-  .tour-card {
-    text-align: center;
+    flex-direction: column;   /* ✅ stack text under image */
     align-items: center;
-    margin-bottom: 20px;
+    text-align: center;
   }
 
   .tour-text {
     max-width: 100%;
     margin-bottom: 15px;
-    text-align: center;
   }
 
   .tour-image img {
-    width: 300px;   /* smaller than desktop */
+    width: 300px;
     height: auto;
+    margin: 0 auto; /* ✅ center image */
   }
 
+/* Phone */
+@media (max-width: 600px) {
+  header h1 { font-size: 1rem; }
+
+  .controls { flex-direction: column; gap: 8px; }
+  .controls input, .controls select { width: 100%; }
+
+  button { width: 100%; }
+
+  .tour-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+  }
