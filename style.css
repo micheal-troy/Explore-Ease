@@ -93,26 +93,6 @@ footer {
   font-size: 0.8rem;
   opacity: 0.8;
 }
-/* Responsive layout for tablets and phones */
-@media (max-width: 1024px) {
-  .tour-card {
-    flex-direction: column !important;
-    text-align: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .tour-text {
-    max-width: 100%;
-    margin-bottom: 15px;
-  }
-
-  .tour-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
-}
 
 @media (max-width: 600px) {
   header h1 {
@@ -132,4 +112,63 @@ footer {
   button {
     width: 100%;
   }
+
+  .tour-card {
+    text-align: center; 
+  }
+
+  .tour-text {
+    text-align: center;
+  }
+
+  .tour-image {
+    justify-content: center;
+  }
+
+  .tour-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+
+
+
+
+
+
+/* Base (desktop stays exactly as before) */
+.tour-image img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: block;
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+  /* Make ALL cards stack (even ones that were row-reverse) */
+  .tour-card,
+  .tour-card:nth-child(even) {
+    flex-direction: column !important;
+  }
+
+  .tour-card {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .tour-text {
+    max-width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .tour-image img {
+    width: 300px;   /* smaller than desktop */
+    height: auto;
+  }
+
